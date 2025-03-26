@@ -11,42 +11,21 @@ script_dir = os.path.dirname(__file__)  # Absolute directory path to the file di
 
 # Setting up the relative filepaths for the datasets
 datasets = {
-    "c300": {
-        "100": {
-            "train": f"{script_dir}/Datasets/train_c300_d100.csv",
-            "valid": f"{script_dir}/Datasets/valid_c300_d100.csv",
-            "test": f"{script_dir}/Datasets/test_c300_d100.csv",
-        },
-        "1000": {
-            "train": f"{script_dir}/Datasets/train_c300_d1000.csv",
-            "valid": f"{script_dir}/Datasets/valid_c300_d1000.csv",
-            "test": f"{script_dir}/Datasets/test_c300_d1000.csv",
-        },
-        "5000": {
-            "train": f"{script_dir}/Datasets/train_c300_d5000.csv",
-            "valid": f"{script_dir}/Datasets/valid_c300_d5000.csv",
-            "test": f"{script_dir}/Datasets/test_c300_d5000.csv",
-        },
-    },
-    # ... (rest of the datasets dictionary remains the same)
+    f'c{clauses}': {
+        str(examples): {
+            dataset_type: f"{script_dir}/Datasets/{dataset_type}_c{clauses}_d{examples}.csv"
+            for dataset_type in ['train', 'valid', 'test']
+        } for examples in ['100', '1000', '5000']
+    } for clauses in ['300', '500', '1000', '1500', '1800']
 }
 
 def load_dataset(file_path):
-    """
-    Load dataset with error handling for column names
-    """
+    # Load dataset with the last column as the label
     try:
-        df = pd.read_csv(file_path)
+        df = pd.read_csv(file_path, header=None)
         
-        # Find the target column (label)
-        label_column = None
-        for col in df.columns:
-            if col.lower() in ['label', 'target', 'class', 'y']:
-                label_column = col
-                break
-        
-        if label_column is None:
-            raise ValueError(f"No label column found in {file_path}")
+        # Assume the last column is the label
+        label_column = df.columns[-1]
         
         return df, label_column
     except Exception as e:
@@ -54,9 +33,6 @@ def load_dataset(file_path):
         return None, None
 
 def train_and_evaluate_classifiers(dataset_paths):
-    """
-    Perform experiments for different classifiers on a given dataset
-    """
     # Load datasets
     train_data, train_label_col = load_dataset(dataset_paths["train"])
     valid_data, valid_label_col = load_dataset(dataset_paths["valid"])
@@ -74,9 +50,6 @@ def train_and_evaluate_classifiers(dataset_paths):
     X_test = test_data.drop(test_label_col, axis=1)
     y_test = test_data[test_label_col]
 
-    # Rest of the function remains the same as in the original script
-    # ... (classifiers, grid search, etc.)
-
     # Classifiers and their parameter grids
     classifiers = {
         'DecisionTree': {
@@ -88,7 +61,7 @@ def train_and_evaluate_classifiers(dataset_paths):
             }
         },
         'Bagging': {
-            'classifier': BaggingClassifier(base_estimator=DecisionTreeClassifier()),
+            'classifier': BaggingClassifier(estimator=DecisionTreeClassifier()),
             'param_grid': {
                 'n_estimators': [10, 50, 100],
                 'max_samples': [0.5, 0.7, 1.0],
