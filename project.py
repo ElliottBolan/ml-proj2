@@ -1,3 +1,4 @@
+# Elliott Bolan, EXB210027, CS 4375.004, Start Date: 3/23/2025
 import os
 import pandas as pd
 import numpy as np
@@ -6,9 +7,9 @@ from sklearn.ensemble import BaggingClassifier, RandomForestClassifier, Gradient
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.datasets import fetch_openml
-from joblib import Parallel, delayed  # For parallel processing
+from joblib import Parallel, delayed
 
-script_dir = os.path.dirname(__file__)  # Absolute directory path to the file dir on the users system
+script_dir = os.path.dirname(__file__)
 
 # Setting up the relative filepaths for the datasets
 datasets = {
@@ -20,7 +21,7 @@ datasets = {
     } for clauses in ['300', '500', '1000', '1500', '1800']
 }
 
-def load_dataset(file_path):
+def load_dataset(file_path): # function to load a dataset from a given file path
     try:
         df = pd.read_csv(file_path, header=None)
         label_column = df.columns[-1]
@@ -31,7 +32,7 @@ def load_dataset(file_path):
 
 def train_and_evaluate_classifier(name, config, X_train, y_train, X_val, y_val, X_test, y_test):
     # Perform grid search
-    grid_search = GridSearchCV(config['classifier'], config['param_grid'], cv=5, scoring='accuracy', n_jobs=-1)
+    grid_search = GridSearchCV(config['classifier'], config['param_grid'], cv=5, scoring='f1_weighted', n_jobs=-1)
     grid_search.fit(X_train, y_train)
 
     # Get best parameters
@@ -61,10 +62,12 @@ def train_and_evaluate_classifiers(dataset_paths):
     valid_data, valid_label_col = load_dataset(dataset_paths["valid"])
     test_data, test_label_col = load_dataset(dataset_paths["test"])
 
+    # Error handling for loading datasets
     if train_data is None or valid_data is None or test_data is None:
         print("Failed to load one or more datasets")
         return None
 
+    # Ensure the label columns are consistent across datasets
     X_train = train_data.drop(train_label_col, axis=1)
     y_train = train_data[train_label_col]
     X_val = valid_data.drop(valid_label_col, axis=1)
@@ -72,6 +75,7 @@ def train_and_evaluate_classifiers(dataset_paths):
     X_test = test_data.drop(test_label_col, axis=1)
     y_test = test_data[test_label_col]
 
+    # Dictionary of classifiers and their parameter grids for hyperparameter tuning
     classifiers = {
         'DecisionTree': {
             'classifier': DecisionTreeClassifier(),
@@ -107,7 +111,7 @@ def train_and_evaluate_classifiers(dataset_paths):
         }
     }
 
-    # Use parallel processing for training and evaluation
+    # Used parallel processing to speed up the process, sorry to the TAs for the extra load on the system!
     results = Parallel(n_jobs=-1)(
         delayed(train_and_evaluate_classifier)(name, config, X_train, y_train, X_val, y_val, X_test, y_test)
         for name, config in classifiers.items()
@@ -116,18 +120,22 @@ def train_and_evaluate_classifiers(dataset_paths):
     return dict(results)
 
 def mnist_experiment():
-    X, y = fetch_openml('mnist_784', version=1, return_X_y=True, as_frame=False)
+    # Downloading and preprocessing the MNIST dataset 
+    X, y = fetch_openml('mnist_784', version=1, return_X_y=True, as_frame=False) # as_frame=True would return the dataset as a pandas DataFrame
     X = X / 255.0
+    # Split into training (60K) and test (10K) sets
     X_train, X_test = X[:60000], X[60000:]
     y_train, y_test = y[:60000], y[60000:]
 
+    # Dictionary for classifiers to be used for the MNIST experiment
     classifiers = {
         'DecisionTree': DecisionTreeClassifier(),
-        'Bagging': BaggingClassifier(base_estimator=DecisionTreeClassifier()),
+        'Bagging': BaggingClassifier(estimator=DecisionTreeClassifier()),
         'RandomForest': RandomForestClassifier(),
         'GradientBoosting': GradientBoostingClassifier()
     }
 
+    # Fitting each classifier on the MNIST dataset and evaluating their performance
     mnist_results = {}
     for name, clf in classifiers.items():
         clf.fit(X_train, y_train)
@@ -145,12 +153,14 @@ def main():
             results = train_and_evaluate_classifiers(paths)
             if results is not None:
                 all_results[category][size] = results
+                # Printing results
                 for clf_name, metrics in results.items():
                     print(f"\n{clf_name} Results:")
                     print(f"Best Params: {metrics['best_params']}")
                     print(f"Accuracy: {metrics['accuracy']}")
                     print(f"F1 Score: {metrics['f1_score']}")
 
+    # Running the MINST experiement and printing the results
     print("\nMNIST Dataset Experiment:")
     mnist_results = mnist_experiment()
     for name, accuracy in mnist_results.items():
