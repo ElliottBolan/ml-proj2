@@ -1,0 +1,13 @@
+Hello! You should be able to run project.py by just opening project.py in your IDE 
+and installing the required libraries with:
+
+pip install scikit-learn pandas numpy joblib
+
+If it does not run, try extracting the files from the .zip to a new folder then running the .py.
+I used VSCode, and Python 3.13.2
+
+Also, I used parallel processing to make my project run faster (still took 2 hours and 15 minutes for me).
+Sorry in advance if you run the program as the parallel processing will make your device laggy.
+
+Please email me if you have any questions at:
+exb210027@utdallas.edu

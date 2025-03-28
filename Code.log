@@ -1,0 +1,340 @@
+[Running] python -u "c:\Users\Elliott\Desktop\TreeBasedML\ml-proj2\project.py"
+
+Experiments for Category: c300, Size: 100
+
+DecisionTree Results:
+Best Params: {'criterion': 'gini', 'max_depth': 40, 'splitter': 'best'}
+Accuracy: 0.65
+F1 Score: 0.6491228070175439
+
+Bagging Results:
+Best Params: {'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 100}
+Accuracy: 0.81
+F1 Score: 0.80998099809981
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 20, 'n_estimators': 200}
+Accuracy: 0.83
+F1 Score: 0.8299319727891157
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 50}
+Accuracy: 0.79
+F1 Score: 0.7899159663865547
+
+Experiments for Category: c300, Size: 1000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': None, 'splitter': 'best'}
+Accuracy: 0.6685
+F1 Score: 0.6684634480951525
+
+Bagging Results:
+Best Params: {'max_features': 0.7, 'max_samples': 1.0, 'n_estimators': 100}
+Accuracy: 0.8745
+F1 Score: 0.8744909319698347
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 20, 'n_estimators': 200}
+Accuracy: 0.877
+F1 Score: 0.8769988929900369
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 200}
+Accuracy: 0.9945
+F1 Score: 0.9944999326241747
+
+Experiments for Category: c300, Size: 5000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 10, 'splitter': 'best'}
+Accuracy: 0.7796
+F1 Score: 0.7792812821714556
+
+Bagging Results:
+Best Params: {'max_features': 0.7, 'max_samples': 1.0, 'n_estimators': 100}
+Accuracy: 0.9351
+F1 Score: 0.9350501646408272
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 10, 'n_estimators': 200}
+Accuracy: 0.9249
+F1 Score: 0.9248389504374929
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 5, 'n_estimators': 200}
+Accuracy: 0.9994
+F1 Score: 0.9993999997840001
+
+Experiments for Category: c500, Size: 100
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 10, 'splitter': 'best'}
+Accuracy: 0.705
+F1 Score: 0.7048155096935586
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.7, 'n_estimators': 100}
+Accuracy: 0.855
+F1 Score: 0.8545600441335038
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': None, 'n_estimators': 200}
+Accuracy: 0.885
+F1 Score: 0.8849741191768148
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 200}
+Accuracy: 0.87
+F1 Score: 0.8698828946051447
+
+Experiments for Category: c500, Size: 1000
+
+DecisionTree Results:
+Best Params: {'criterion': 'gini', 'max_depth': 40, 'splitter': 'best'}
+Accuracy: 0.693
+F1 Score: 0.692969296929693
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.7, 'n_estimators': 100}
+Accuracy: 0.9295
+F1 Score: 0.929494906006959
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 30, 'n_estimators': 200}
+Accuracy: 0.9525
+F1 Score: 0.9524965678770291
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 200}
+Accuracy: 0.998
+F1 Score: 0.997999997999998
+
+Experiments for Category: c500, Size: 5000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 10, 'splitter': 'random'}
+Accuracy: 0.7898
+F1 Score: 0.7893464713790201
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 1.0, 'n_estimators': 100}
+Accuracy: 0.9609
+F1 Score: 0.9608992082089662
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 30, 'n_estimators': 200}
+Accuracy: 0.9578
+F1 Score: 0.9577978122385864
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 4, 'n_estimators': 200}
+Accuracy: 0.9998
+F1 Score: 0.9997999999920001
+
+Experiments for Category: c1000, Size: 100
+
+DecisionTree Results:
+Best Params: {'criterion': 'gini', 'max_depth': 30, 'splitter': 'random'}
+Accuracy: 0.685
+F1 Score: 0.684044233807267
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.5, 'n_estimators': 100}
+Accuracy: 0.94
+F1 Score: 0.94
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 30, 'n_estimators': 200}
+Accuracy: 0.98
+F1 Score: 0.98
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 200}
+Accuracy: 0.985
+F1 Score: 0.9849996249906248
+
+Experiments for Category: c1000, Size: 1000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 20, 'splitter': 'best'}
+Accuracy: 0.7955
+F1 Score: 0.7949347890122149
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.5, 'n_estimators': 100}
+Accuracy: 0.975
+F1 Score: 0.9749995999936
+
+RandomForest Results:
+Best Params: {'criterion': 'gini', 'max_depth': 20, 'n_estimators': 200}
+Accuracy: 0.9925
+F1 Score: 0.992499953124707
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 200}
+Accuracy: 0.9985
+F1 Score: 0.9984999966249924
+
+Experiments for Category: c1000, Size: 5000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 10, 'splitter': 'random'}
+Accuracy: 0.8546
+F1 Score: 0.8543049675593076
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 1.0, 'n_estimators': 100}
+Accuracy: 0.9894
+F1 Score: 0.9893999995760001
+
+RandomForest Results:
+Best Params: {'criterion': 'gini', 'max_depth': 20, 'n_estimators': 200}
+Accuracy: 0.9953
+F1 Score: 0.995299999953
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 4, 'n_estimators': 200}
+Accuracy: 0.9999
+F1 Score: 0.9998999999989999
+
+Experiments for Category: c1500, Size: 100
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 20, 'splitter': 'random'}
+Accuracy: 0.855
+F1 Score: 0.8549093183239524
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.7, 'n_estimators': 100}
+Accuracy: 1.0
+F1 Score: 1.0
+
+RandomForest Results:
+Best Params: {'criterion': 'gini', 'max_depth': None, 'n_estimators': 50}
+Accuracy: 1.0
+F1 Score: 1.0
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 100}
+Accuracy: 1.0
+F1 Score: 1.0
+
+Experiments for Category: c1500, Size: 1000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': None, 'splitter': 'best'}
+Accuracy: 0.925
+F1 Score: 0.9249783187341141
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.7, 'n_estimators': 100}
+Accuracy: 0.996
+F1 Score: 0.9959999839999361
+
+RandomForest Results:
+Best Params: {'criterion': 'gini', 'max_depth': None, 'n_estimators': 100}
+Accuracy: 1.0
+F1 Score: 1.0
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 50}
+Accuracy: 1.0
+F1 Score: 1.0
+
+Experiments for Category: c1500, Size: 5000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 50, 'splitter': 'random'}
+Accuracy: 0.9544
+F1 Score: 0.9543925276717339
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 1.0, 'n_estimators': 50}
+Accuracy: 0.9982
+F1 Score: 0.998199999928
+
+RandomForest Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 30, 'n_estimators': 200}
+Accuracy: 0.9997
+F1 Score: 0.9996999999970001
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 200}
+Accuracy: 1.0
+F1 Score: 1.0
+
+Experiments for Category: c1800, Size: 100
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 20, 'splitter': 'random'}
+Accuracy: 0.915
+F1 Score: 0.9147420948368815
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.5, 'n_estimators': 50}
+Accuracy: 0.995
+F1 Score: 0.9949998749968749
+
+RandomForest Results:
+Best Params: {'criterion': 'gini', 'max_depth': None, 'n_estimators': 50}
+Accuracy: 1.0
+F1 Score: 1.0
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.5, 'max_depth': 3, 'n_estimators': 50}
+Accuracy: 0.995
+F1 Score: 0.9949998749968749
+
+Experiments for Category: c1800, Size: 1000
+
+DecisionTree Results:
+Best Params: {'criterion': 'gini', 'max_depth': 30, 'splitter': 'random'}
+Accuracy: 0.971
+F1 Score: 0.9709970997099711
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 0.5, 'n_estimators': 100}
+Accuracy: 0.9985
+F1 Score: 0.9984999996249999
+
+RandomForest Results:
+Best Params: {'criterion': 'gini', 'max_depth': None, 'n_estimators': 100}
+Accuracy: 1.0
+F1 Score: 1.0
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 100}
+Accuracy: 1.0
+F1 Score: 1.0
+
+Experiments for Category: c1800, Size: 5000
+
+DecisionTree Results:
+Best Params: {'criterion': 'entropy', 'max_depth': 50, 'splitter': 'best'}
+Accuracy: 0.9844
+F1 Score: 0.984399320434398
+
+Bagging Results:
+Best Params: {'max_features': 0.5, 'max_samples': 1.0, 'n_estimators': 100}
+Accuracy: 0.9999
+F1 Score: 0.9998999999989999
+
+RandomForest Results:
+Best Params: {'criterion': 'gini', 'max_depth': None, 'n_estimators': 50}
+Accuracy: 1.0
+F1 Score: 1.0
+
+GradientBoosting Results:
+Best Params: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 200}
+Accuracy: 1.0
+F1 Score: 1.0
+
+MNIST Dataset Experiment:
+DecisionTree - Accuracy: 0.8757
+Bagging - Accuracy: 0.9426
+RandomForest - Accuracy: 0.9697
+GradientBoosting - Accuracy: 0.9458
+
+[Done] exited with code=0 in 8081.688 seconds
+
